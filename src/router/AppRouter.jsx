@@ -6,6 +6,7 @@ import Home from "../../src/pages/home/Home";
 import Login from "../../src/pages/login/Login";
 import About from "../../src/pages/about/About";
 import Detail from "../../src/pages/detail/Detail";
+import PrivateRouter from "./PrivateRouter";
 const AppRouter = () => {
   return (
     <BrowserRouter>
@@ -14,8 +15,12 @@ const AppRouter = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="login" element={<Login />} />
-        <Route path="about" element={<About />} />
-        <Route path="detail" element={<Detail />} />
+        <Route path="about" element={<PrivateRouter />}>
+          <Route path="" element={<About />} />
+        </Route>
+        <Route path="detail" element={<PrivateRouter />}>
+          <Route path="" element={<Detail />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
