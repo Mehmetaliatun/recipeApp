@@ -9,21 +9,35 @@ const Home = () => {
   const [query, setQuery] = useState("egg");
   const [selectedMeal, setSelectedMeal] = useState("breakfast");
   const [recipes, setRecipes] = useState("");
+  const mealType = ["Breakfast", "Lunch", "Dinner", "Snack", "TeaTime"];
 
   const url = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&mealType=${selectedMeal}`;
 
   const getData = async () => {
-    const { data } = await axios(url);
-    setRecipes(data.hits);
+    if (query) {
+      try {
+        const { data } = await axios(url);
+        setRecipes(data.hits);
+      } catch (error) {
+        console.log(error);
+      }
+    } else {
+      alert("The form is empty!");
+    }
   };
   console.log(recipes);
-  useEffect(() => {
-    getData();
-  }, []);
+  // useEffect(() => {
+  //   getData();
+  // }, []);
 
   return (
     <div>
-      <Header setQuery={setQuery} />
+      <Header
+        setQuery={setQuery}
+        selectedMeal={setSelectedMeal}
+        mealType={mealType}
+        getData={getData}
+      />
     </div>
   );
 };
