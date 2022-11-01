@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useEffect } from "react";
+import Header from "../../components/header/Header";
 
 const Home = () => {
   const APP_ID = "a9ec6f9a";
@@ -13,15 +14,18 @@ const Home = () => {
 
   const getData = async () => {
     const { data } = await axios(url);
-    console.log(data);
     setRecipes(data.hits);
   };
-
+  console.log(recipes);
   useEffect(() => {
     getData();
   }, []);
 
-  return <div>Home</div>;
+  return (
+    <div>
+      <Header setQuery={setQuery} />
+    </div>
+  );
 };
 
 export default Home;
