@@ -1,7 +1,10 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useEffect } from "react";
+import Cards from "../../components/cards/Cards";
 import Header from "../../components/header/Header";
+import { HomeImg, ImgDiv } from "./Home.style";
+import homeSvg from "../../assets/home.svg";
 
 const Home = () => {
   const APP_ID = "a9ec6f9a";
@@ -38,6 +41,12 @@ const Home = () => {
         mealType={mealType}
         getData={getData}
       />
+      {!recipes && (
+        <ImgDiv>
+          <HomeImg src={homeSvg} />
+        </ImgDiv>
+      )}
+      <Cards />
     </div>
   );
 };
