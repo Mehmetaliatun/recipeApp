@@ -1,4 +1,5 @@
 import React from "react";
+import "./Header.style";
 import {
   Button,
   FoodInput,
@@ -13,15 +14,18 @@ const Header = ({ setQuery, setSelectedMeal, mealType, getData }) => {
     e.preventDefault();
     getData();
   };
+
   return (
     <HeaderContainer>
       <MainHeader>Recipe App</MainHeader>
+
       <FormContainer onSubmit={handleSubmit}>
         <FoodInput
           type="text"
           placeholder="Search"
           onChange={(e) => setQuery(e.target.value)}
         />
+
         <Button type="submit">SEARCH</Button>
 
         <Select

@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { useEffect } from "react";
 import Cards from "../../components/cards/Cards";
 import Header from "../../components/header/Header";
 import { HeaderText, HomeImg, ImgDiv } from "./Home.style";
@@ -25,10 +24,11 @@ const Home = () => {
         console.log(error);
       }
     } else {
-      alert("The form is empty!");
+      alert("Fill the Form");
     }
   };
   console.log(recipes);
+
   // useEffect(() => {
   //   getData();
   // }, []);
@@ -37,22 +37,23 @@ const Home = () => {
     <div>
       <Header
         setQuery={setQuery}
-        selectedMeal={setSelectedMeal}
+        setSelectedMeal={setSelectedMeal}
         mealType={mealType}
         getData={getData}
       />
+
       {!recipes && (
         <ImgDiv>
           <HomeImg src={homeSvg} />
         </ImgDiv>
       )}
-      {recipes?.lenght === 0 && (
+
+      {recipes?.length === 0 && (
         <HeaderText>The Food can not be found</HeaderText>
       )}
-      {recipes?.lenght > 0 && <Cards recipes={recipes} />}
-      <Cards />
+
+      {recipes?.length > 0 && <Cards recipes={recipes} />}
     </div>
   );
 };
-
 export default Home;

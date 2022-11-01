@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.style";
-import { Nav, Brand, Menu, MenuLink, Hamburger } from "./Navbar.style";
+import Nav, { Brand, Menu, MenuLink, Hamburger } from "./Navbar.style";
 import { GiHamburgerMenu } from "react-icons/gi";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-
   return (
     <Nav justify="space-between" wrap="wrap">
       <Brand to="/">
-        <i>{"<ATUN/>"}</i>
+        <i>{"<Clarusway/>"}</i>
         <span>Recipe</span>
       </Brand>
 

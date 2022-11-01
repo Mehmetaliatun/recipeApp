@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Flex from "../globalStyles/Flex.style";
-export const Nav = styled(Flex)`
+import { Link } from "react-router-dom";
+
+const Nav = styled(Flex)`
   padding: 1rem 1.5rem;
   background-color: ${({ theme }) => theme.colors.navbarBgColor};
 `;
@@ -48,7 +49,10 @@ export const Hamburger = styled.div`
   display: none;
   cursor: pointer;
   color: ${({ theme }) => theme.colors.mainColor};
+
   @media (max-width: ${({ theme }) => theme.screens.lg}) {
     display: block;
   }
 `;
+
+export default Nav;
